@@ -17,7 +17,7 @@ public class Session {
     private ShoppingCart currCart; //hold the path to the database directory
 
     public Session(ShoppingCartDB repositoryCart) {
-        this.repository = repository;
+        this.repository = repositoryCart;
         System.out.println("Repository initialized: " + (this.repository != null)); // This should print true
     }
 

@@ -20,17 +20,18 @@ public class ShoppingCartDB {
 
     public ShoppingCartDB(String _repository) {
         this.repository = new File(_repository);
-        //System.out.println("Creating ShoppingCartDB with path: " + _repository);
+        System.out.println("Creating ShoppingCartDB with path: " + _repository);
         //creates a new File object with the path provided in _repository 
         //and assigns it to the repository member variable. 
         //The 'this' keyword is used here to refer to the current object's repository field, 
         //making it clear that you're assigning the value to the class's field, not the parameter itself.
         // Use this.repository for the existence check and directory creation
-    }
+
         //to check if list command works
-        /* File directory = new File(_repository);
+        File directory = new File(_repository);
         if (!directory.exists()){
             directory.mkdirs(); // Create the directory if it doesn't exist
+            System.out.println("Successfully created the DIRECTORY: " + directory);
         }
         if (!this.repository.exists()) {
             boolean wasSuccessful = this.repository.mkdirs(); // Create the directory if it doesn't exist
@@ -40,7 +41,8 @@ public class ShoppingCartDB {
                 System.out.println("Failed to create the directory: " + _repository);
             }
         }
-    } */
+    }
+     
 
     public File getRepository() {
         return repository;
