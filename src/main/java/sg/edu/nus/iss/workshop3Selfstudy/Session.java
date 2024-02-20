@@ -83,7 +83,8 @@ public class Session {
             return;
         }
         for (String item : items) {
-            System.out.println("items.indexOf(item) + 1), item");
+            int index = items.indexOf(item) + 1;
+            System.out.println(index + " " + item);
         }
     }
 }
