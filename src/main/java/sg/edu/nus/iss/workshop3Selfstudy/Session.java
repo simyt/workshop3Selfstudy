@@ -18,6 +18,7 @@ public class Session {
 
     public Session(ShoppingCartDB repositoryCart) {
         this.repository = repository;
+        System.out.println("Repository initialized: " + (this.repository != null)); // This should print true
     }
 
     public void start() {
@@ -43,6 +44,10 @@ public class Session {
                     break;
                 
                 case LIST:
+                    if (currCart == null) {
+                        System.out.println("Please login before listing the cart contents.");
+                        break;
+                    }
                     currCart = repository.load(currCart.getUsername());
                     printAllItems(currCart.getContents());
                     break;
@@ -73,7 +78,7 @@ public class Session {
     }
 
     public void printAllItems(List<String> items) {
-        if (items.size() == 0) {
+        if (items.isEmpty()) {
             System.out.println("no iems in the cart.");
             return;
         }

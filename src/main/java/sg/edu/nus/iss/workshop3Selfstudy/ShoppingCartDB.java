@@ -20,11 +20,27 @@ public class ShoppingCartDB {
 
     public ShoppingCartDB(String _repository) {
         this.repository = new File(_repository);
+        //System.out.println("Creating ShoppingCartDB with path: " + _repository);
         //creates a new File object with the path provided in _repository 
         //and assigns it to the repository member variable. 
         //The 'this' keyword is used here to refer to the current object's repository field, 
         //making it clear that you're assigning the value to the class's field, not the parameter itself.
+        // Use this.repository for the existence check and directory creation
     }
+        //to check if list command works
+        /* File directory = new File(_repository);
+        if (!directory.exists()){
+            directory.mkdirs(); // Create the directory if it doesn't exist
+        }
+        if (!this.repository.exists()) {
+            boolean wasSuccessful = this.repository.mkdirs(); // Create the directory if it doesn't exist
+            if (wasSuccessful) {
+                System.out.println("Successfully created the directory: " + _repository);
+            } else {
+                System.out.println("Failed to create the directory: " + _repository);
+            }
+        }
+    } */
 
     public File getRepository() {
         return repository;
@@ -45,6 +61,7 @@ public class ShoppingCartDB {
     public ShoppingCart load (String username) {//ShoppingCart is the return type, indicating that this method will return an instance of ShoppingCart.
         String cartName = username + ".db";
         ShoppingCart cart = new ShoppingCart(username);
+        if (repository.exists() && repository.isDirectory()) { //** */
         for (File cartFile : repository.listFiles()) { //iterate over all files in the 'repository' directory where all the cartFiles are stored.
             if (cartFile.getName().equals(cartName)) { //check ea file to see if its name matches the constructed cartName
                 InputStream is;
@@ -52,12 +69,14 @@ public class ShoppingCartDB {
                     is = new FileInputStream(cartFile); //creates an InputStream if curr cartFiile match the cartName
                     cart.load(is); //If the matching file is found, it reads the file's contents and populates the ShoppingCart object with the items listed in the file.
                 } catch (FileNotFoundException e) {
+                    //System.err.println("File not found: " + cartFile.getAbsolutePath());
                     e.printStackTrace();
                 } catch (IOException e) {
+                    //System.err.println("IO Exception while loading cart: " + cartFile.getAbsolutePath());
                     e.printStackTrace();
                 }
             }
-        }
+        } } else { System.out.println("Repository directory does not exist or is not a directory.");}
         return cart; //Returns the populated ShoppingCart object, whether or not items were loaded 
         //(if no matching file was found, the cart would be empty).
         
@@ -80,7 +99,7 @@ public class ShoppingCartDB {
             if (!cartDB.exists()){
                 try { //if the file does not exist
                     Path p = Paths.get(repository.getPath());
-                    Files.createDirectory(p); //create the directory using Files.createDirectory(p); 
+                    Files.createDirectories(p); //create the directory using Files.createDirectory(p); 
                     //if the directory specified by repository doesn't already exist.
                 } catch (FileAlreadyExistsException e) { //If the directory already exists (FileAlreadyExistsException),
                     System.err.println("File already exists: " + e.getMessage()); //prints a message but doesn't interrupt the execution.

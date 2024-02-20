@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: sg.edu.nus.iss.workshop3Selfstudy.AppTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in sg.edu.nus.iss.workshop3Selfstudy.AppTest
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.037 s <<< FAILURE! - in sg.edu.nus.iss.workshop3Selfstudy.AppTest
+testListAllUsers(sg.edu.nus.iss.workshop3Selfstudy.AppTest)  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.NullPointerException: Cannot read the array length because the return value of "java.io.File.listFiles()" is null
+	at sg.edu.nus.iss.workshop3Selfstudy.AppTest.testListAllUsers(AppTest.java:27)
+

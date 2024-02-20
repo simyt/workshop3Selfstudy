@@ -7,16 +7,18 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
 public class ShoppingCart {
-    private static Set <String> contents;
+    private Set <String> contents;
     private String username;
 
     public ShoppingCart (String _username) {
         this.username = _username;
+        this.contents = new HashSet<>();
     }
 
     public String getUsername() {
@@ -58,6 +60,7 @@ public class ShoppingCart {
                 try{
                     bw.write(item);
                     bw.newLine();
+                    System.out.println("bufferedwriter working");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }  
@@ -68,13 +71,14 @@ public class ShoppingCart {
                 bw.flush();
                 writer.close();
                 bw.close();
+                System.out.println("bufferedreader close");
             }catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public static List<String> getContents() {
+    public List<String> getContents() {
         List<String> list = new LinkedList<String>(contents);
         return list;
     } 

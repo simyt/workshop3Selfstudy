@@ -19,6 +19,7 @@ public class App
         //which will be either the default "db" or the one provided as a command-line argument.
 
         ShoppingCartDB db = new ShoppingCartDB(defaultDB); // creates an instance of ShoppingCartDB using the determined database directory path.
+        System.out.println("Is ShoppingCartDB 'db' null? " + (db == null));
         Session session = new Session(db); //initializes a Session object with the created ShoppingCartDB instance
         session.start(); //// A new session starts with a fresh currentCart.
     }

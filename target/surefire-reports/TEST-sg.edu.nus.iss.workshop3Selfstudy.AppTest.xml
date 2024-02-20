@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="sg.edu.nus.iss.workshop3Selfstudy.AppTest" time="0.022" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="sg.edu.nus.iss.workshop3Selfstudy.AppTest" time="0.037" tests="2" errors="1" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="SG"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin"/>
-    <property name="sun.java.command" value="C:\Users\sytyu\AppData\Local\Temp\surefire17515869240355720015\surefirebooter1837237283082652775.jar C:\Users\sytyu\AppData\Local\Temp\surefire17515869240355720015 2024-02-20T16-57-23_026-jvmRun1 surefire5931445401803695537tmp surefire_02394667265489313435tmp"/>
+    <property name="sun.java.command" value="C:\Users\sytyu\AppData\Local\Temp\surefire4061328833431889862\surefirebooter5016294362136555030.jar C:\Users\sytyu\AppData\Local\Temp\surefire4061328833431889862 2024-02-20T17-17-00_085-jvmRun1 surefire17243534156896931713tmp surefire_013591842722107416601tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\sytyu\NUS-ISS-SDF\workshop3Selfstudy\Task01\target\test-classes;C:\Users\sytyu\NUS-ISS-SDF\workshop3Selfstudy\Task01\target\classes;C:\Users\sytyu\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\sytyu\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\sytyu\AppData\Local\Temp\surefire17515869240355720015\surefirebooter1837237283082652775.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\sytyu\AppData\Local\Temp\surefire4061328833431889862\surefirebooter5016294362136555030.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.2+13-LTS-58"/>
@@ -58,5 +58,10 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="sg.edu.nus.iss.workshop3Selfstudy.AppTest" time="0.002"/>
+  <testcase name="shouldAnswerWithTrue" classname="sg.edu.nus.iss.workshop3Selfstudy.AppTest" time="0.003"/>
+  <testcase name="testListAllUsers" classname="sg.edu.nus.iss.workshop3Selfstudy.AppTest" time="0.007">
+    <error message="Cannot read the array length because the return value of &quot;java.io.File.listFiles()&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot read the array length because the return value of "java.io.File.listFiles()" is null
+	at sg.edu.nus.iss.workshop3Selfstudy.AppTest.testListAllUsers(AppTest.java:27)
+</error>
+  </testcase>
 </testsuite>
